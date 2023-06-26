@@ -1,6 +1,6 @@
 # Ansible-Docker
 
-Building an environment for using <a href="https://www.ansible.com/">Ansible</a> requires multiple computers, either physical or virtual, such as VM, or Cloud. <br>
+Building an environment for <a href="https://www.ansible.com/">Ansible</a> requires multiple computers, either physical or virtual, such as VM, or Cloud. <br>
 However, it is very complex and expensive, but <a href="https://www.docker.com/">Docker</a> makes it easy, and fast, with no additional cost. <br>
 So we use Docker to build an ansible environment using the code in this repository.
 
