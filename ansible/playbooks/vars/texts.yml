@@ -1,0 +1,28 @@
+lineinfile:
+  - name: line1
+    content: "This 'linefile' module ensures a particular line is in a file, or replace an existing line using a back-referenced regular expression."
+
+  - name: line2
+    content: "This 'blockinfile' module will insert/update/remove a block of multi-line text surrounded by customizable marker lines."
+  
+  - name: line3
+    content: "This 'replace' module will replace all instances of a pattern within a file. It is up to the user to maintain idempotence by ensuring that the same pattern would never match any replacements made."
+
+blockinfile:
+  - name: block1
+    content: |
+      This 'linefile' module is part of ansible-core and included in all Ansible installations. 
+      In most cases, you can use the short module name lineinfile even without specifying the collections: keyword.
+      However, we recommend you use the FQCN for easy linking to the module documentation and to avoid conflicting with other collections that may have the same module name.
+
+  - name: block2
+    content: |
+      This 'blockinfile' module is part of ansible-core and included in all Ansible installations. 
+      In most cases, you can use the short module name blockinfile even without specifying the collections: keyword.
+      However, we recommend you use the FQCN for easy linking to the module documentation and to avoid conflicting with other collections that may have the same module name.
+
+  - name: block3
+    content: |
+      This 'replace' his module is part of ansible-core and included in all Ansible installations. 
+      In most cases, you can use the short module name replace even without specifying the collections: keyword.
+      However, we recommend you use the FQCN for easy linking to the module documentation and to avoid conflicting with other collections that may have the same module name.

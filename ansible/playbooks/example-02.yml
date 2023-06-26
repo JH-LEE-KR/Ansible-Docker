@@ -1,0 +1,12 @@
+---
+# Print variables to the terminal
+# ansible-playbook -i /ansible/inventory /ansible/playbooks/example-02.yml
+- hosts: all
+  vars:
+    - username: ethan
+    - uid: 11000
+    - home: /home/ethan   
+  tasks:
+    - name: Print variables
+      debug:
+        msg: "Username: {{ username }}, UID: {{ uid }}, Home dir: {{ home }}"

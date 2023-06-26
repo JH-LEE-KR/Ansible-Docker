@@ -1,0 +1,15 @@
+users:
+  - name: ethan
+    uid: 11000
+
+  - name: ava
+    uid: 11001
+
+  - name: liam
+    uid: 11002
+
+  - name: isabella
+    uid: 11003
+
+  - name: noah
+    uid: 11004

@@ -1,0 +1,17 @@
+---
+# Install some tools by apt to all nodes
+# ansible-playbook -i /ansible/inventory /ansible/playbooks/example-07.yml
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Install some tools by apt
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+      loop:
+        - tree
+        - net-tools
+        - ncdu
+        - vim
+        - htop

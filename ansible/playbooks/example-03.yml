@@ -1,0 +1,16 @@
+---
+# Print facts to the terminal
+# ansible-playbook -i /ansible/inventory /ansible/playbooks/example-03.yml
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Print all facts
+      debug:
+        var: ansible_facts
+
+    - name: Print some specified facts
+      debug:
+        msg:
+          - "Hostname: {{ ansible_facts['hostname'] }}"
+          - "Username: {{ ansible_facts['user_id'] }}"
+          - "Virtualization: {{ ansible_facts['virtualization_type'] }}"

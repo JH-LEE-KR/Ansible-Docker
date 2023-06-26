@@ -1,0 +1,23 @@
+---
+# Create file and directory to all nodes
+# ansible-playbook -i /ansible/inventory /ansible/playbooks/example-05.yml
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+    - name: Include user vars
+      include_vars:
+        file: "{{ playbook_dir }}/vars/users.yml"
+        name: users
+  
+    - name: Create directory
+      file:
+        path: /home/{{ item.name }}/test
+        state: directory
+      with_items: "{{ users.users }}"
+
+    - name: Create empty file
+      file:
+        path: /home/{{ item.name }}/test/test.txt
+        state: touch
+      with_items: "{{ users.users }}"

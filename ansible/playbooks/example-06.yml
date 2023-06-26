@@ -1,0 +1,42 @@
+---
+# Manage lines or blocks in text files of all nodes
+# ansible-playbook -i /ansible/inventory /ansible/playbooks/example-06.yml
+- hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+    - name: Include user vars
+      include_vars:
+        file: "{{ playbook_dir }}/vars/users.yml"
+        name: users
+    
+    - name: Include text vars
+      include_vars:
+        file: "{{ playbook_dir }}/vars/texts.yml"
+        name: texts
+
+    - name: Insert lines to file using lineinfile module
+      lineinfile:
+        path: "/home/{{ item[0].name }}/test/test.txt"
+        line: "{{ item[1].content }}"
+        state: present
+      with_nested:
+        - "{{ users.users }}"
+        - "{{ texts.lineinfile }}"
+    
+    - name: Insert blocks to file using blockinfile module
+      blockinfile:
+        path: "/home/{{ item[0].name }}/test/test.txt"
+        block: "{{ item[1].content }}"
+        state: present
+        marker: ""
+      with_nested:
+        - "{{ users.users }}"
+        - "{{ texts.blockinfile }}"
+
+    - name: Replace instances of a pattern in file using replace module
+      replace:
+        path: "/home/{{ item.name }}/test/test.txt"
+        regexp: "This"
+        replace: "That"
+      with_items: "{{ users.users }}"
