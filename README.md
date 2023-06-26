@@ -21,9 +21,15 @@ bash setup.sh
 ```
 The arguments below can be changed:
 ```
-REPLICAS=${REPLICAS:-3} # Number of worker nodes
-PORT="${PORT:-30080}"   # Port to expose master node on local machine
-ANSIBLE_USER="sadmin"   # Username for ssh & ansible
+setup.sh
+REPLICAS=${REPLICAS:-3}                         # Number of worker nodes
+PORT="${PORT:-30080}"                           # Port to expose master node on local machine
+ANSIBLE_USER="sadmin"                           # Username for ssh & ansible
+
+./ansible/ansible.sh
+ANSIBLE_VERSION="${ANSIBLE_VERSION:-4.8.0}"     # Ansible version to install
+ANSIBLE_TOO_NEW="${ANSIBLE_TOO_NEW:-5.0.0}"     # Ansible version too new
+VENV_DIR="${VENV_DIR:-/opt/ansible-docker/env}" # Path to python virtual environment to create
 ```
 After the script is finished:
 ```
