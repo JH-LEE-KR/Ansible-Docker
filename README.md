@@ -33,7 +33,7 @@ VENV_DIR="${VENV_DIR:-/opt/ansible-docker/env}" # Path to python virtual environ
 ```
 After the script is finished:
 ```
-ssh ${ANSIBLE_USER}@127.0.0.1 -p ${PORT}"
+ssh ${ANSIBLE_USER}@127.0.0.1 -p ${PORT}
 ```
 All ready to use ansible. <br><br>
 You can learn how to use it easily using `/ansible/playbooks/example-0*.yml`, <br>
