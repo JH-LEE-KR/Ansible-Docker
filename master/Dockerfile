@@ -38,7 +38,8 @@ RUN apt-get update \
 # Set sudoers to behave same as the default user
 RUN echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-# Start ssh service
-RUN service ssh start
+# System init script
 EXPOSE 22
-ENTRYPOINT ["/usr/sbin/sshd","-D"]
+ADD ../init.sh /init.sh
+RUN chmod +x /init.sh
+ENTRYPOINT [ "/init.sh" ]

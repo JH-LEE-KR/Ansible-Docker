@@ -28,11 +28,13 @@ is_running() {
 if command -v docker &> /dev/null ; then
     echo "Build docker images"
 
-    docker build -t ansible-docker/master ./master \
+    docker build --tag ansible-docker/master \
+        --file ./master/Dockerfile . \
         --build-arg PASSWORD=${PASSWORD} \
         --build-arg ANSIBLE_USER=${ANSIBLE_USER}
 
-    docker build -t ansible-docker/worker ./worker \
+    docker build --tag ansible-docker/worker \
+        --file ./worker/Dockerfile . \
         --build-arg PASSWORD=${PASSWORD} \
         --build-arg ANSIBLE_USER=${ANSIBLE_USER}
 
