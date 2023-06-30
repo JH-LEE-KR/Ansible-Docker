@@ -53,6 +53,7 @@ if (docker image inspect ansible-docker/master >/dev/null 2>&1 \
         --hostname master \
         --name master \
         --mount type=bind,source=$ANSIBLE_DIR,target=/ansible \
+        --privileged=true \
         ansible-docker/master
 
     for ((i=1; i<=$REPLICAS; i++))
@@ -61,6 +62,7 @@ if (docker image inspect ansible-docker/master >/dev/null 2>&1 \
         docker run -d \
             --hostname $name \
             --name $name \
+            --privileged=true \
             ansible-docker/worker
     done
 else
