@@ -4,4 +4,3 @@
 exec /usr/sbin/init
 service ssh start
 exec /usr/sbin/sshd -D
-RUN service ssh start
